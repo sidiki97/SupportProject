@@ -1,0 +1,12 @@
+<vaultpackage xmlns="https://veevavault.com/">
+    <name>PKG-DOC-DELETE</name>
+    <source>
+        <vault></vault>
+        <author>abbas.siddiqui@supportvaults.com</author>
+    </source>
+    <summary>Customer Data Job Test</summary>
+    <description>Test: Job Implementation</description>
+    <javasdk>
+        <deployment_option>incremental</deployment_option>
+    </javasdk>
+</vaultpackage>

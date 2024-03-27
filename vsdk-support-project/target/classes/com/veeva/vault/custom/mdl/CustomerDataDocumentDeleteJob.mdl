@@ -1,0 +1,7 @@
+RECREATE Jobmetadata delete_customer_data__c (
+   active (true),
+   label ('Delete Customer Data Within Specific Time Period'),
+   description('Delete Customer Data by Specific Time Period'),
+   chunk_size(10),
+   job_code('Sdkjob.com.veeva.vault.custom.processors.CustomerDocs')
+  );

@@ -14,7 +14,7 @@ For Eclipse this is done by:
 
 ## Setup
 
-First, you need to configure your vault so the sample trigger runs smoothly. You can do this by deploying a prepackaged set of components (.vpk), or by manually creating a "vsdk_hello_world__c" object in Vault.
+Ensure all required components are configured in the Vault.  This includes connection, doc field on the base document, and job definition.
 
 #### Deploying the vSDK VPK Package
 

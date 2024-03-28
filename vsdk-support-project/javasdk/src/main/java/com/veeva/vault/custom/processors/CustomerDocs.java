@@ -149,69 +149,12 @@ public class CustomerDocs implements Job {
 
                             List<String> docs = VaultCollections.newList();
                             for (int i = 0; i < data.getSize(); i++) {
-                                //TODO: See possibility of having user id with links to all documents experiencing fails
-                                /*
-                                Gather list of doc ids that failed
-                                Run query with contains that selects id and created_by__v
-                                Digest query and create a map of user id (key), with list of doc ids (value)
-                                send notification to user with list of doc ids that need to be deleted
 
-
-                                 */
                                 JsonObject jsonObject = data.getValue(i, JsonValueType.OBJECT);
                                 if (jsonObject.getValue("responseStatus", JsonValueType.STRING).equals("FAILURE")) {
                                     BigDecimal id = jsonObject.getValue("id", JsonValueType.NUMBER);
                                     docs.add(id.toString());
-//                                    logService.info("Doc that can't be deleted: " + id.toString());
-//
-//                                    HttpRequest queryRequest = httpService.newHttpRequest("local_connection");
-//                                    queryRequest.setMethod(HttpMethod.POST);
-//                                    queryRequest.appendPath("/api/v23.3/query");
-//                                    queryRequest.setBodyParam("q", "SELECT created_by__v FROM documents WHERE id = '"
-//                                            + id.toString() + "'");
-//
-//
-//                                    httpService.send(queryRequest, HttpResponseBodyValueType.JSONDATA)
-//                                            .onSuccess(queryResponse -> {
-//                                                int queryResponseCode = queryResponse.getHttpStatusCode();
-//                                                logService.info("Query RESPONSE: " + queryResponseCode);
-//
-//                                                JsonData queryJsonData = queryResponse.getResponseBody();
-//
-//
-//                                                JsonArray queryData = queryJsonData.getJsonObject().getValue("data", JsonValueType.ARRAY);
-//
-//                                                JsonObject queryObject = queryData.getValue(0, JsonValueType.OBJECT);
-//
-//                                                String userId = queryObject.getValue("created_by__v", JsonValueType.NUMBER).toString();
-//
-//                                                String notificationText = "Hello ${recipientFirstName},<br>" +
-//                                                        "<br>This is to inform you the following document needs to be deleted due to Compliance:<br>" +
-//                                                        "Document link: ${uiBaseExtUrl}/#doc_info/" + id.toString() + " in Vault ${vaultName}. <br>" +
-//                                                        "<br><br>Thank you,<br>Support Compliance";
-//
-//                                                NotificationMessage message = notificationService.newNotificationMessage()
-//                                                        .setMessage(notificationText)
-//                                                        .setNotificationText(notificationText)
-//                                                        .setSubject("${vaultId} Data Compliance: Document Deletion REQUIRED");
-//
-//                                                Set<String> set = VaultCollections.newSet();
-//                                                set.add(userId);
-//
-//                                                NotificationParameters notificationParameters = notificationService.newNotificationParameters()
-//                                                        .setRecipientsByUserIds(set);
-//
-//                                                notificationService.send(notificationParameters, message);
-//
-//                                            })
-//                                            .onError(httpOperationError -> {
-//                                                        int queryResponseCode = httpOperationError.getHttpResponse().getHttpStatusCode();
-//                                                        logService.info("Query RESPONSE: " + queryResponseCode);
-//                                                        logService.info(httpOperationError.getMessage());
-//                                                        logService.info(httpOperationError.getHttpResponse().getResponseBody());
-//                                                    }
-//
-//                                            ).execute();
+
 
                                 }
 

@@ -14,7 +14,7 @@ For Eclipse this is done by:
 
 ## Setup
 
-Ensure all required components are configured in the Vault.  This includes connection, doc field on the base document, and job definition.
+Ensure all required components are configured in the Vault.  This includes connection, doc field on the base document, SDK queue, and job definition.
 
 #### Deploying the vSDK VPK Package
 
